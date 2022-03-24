@@ -11,7 +11,7 @@ public class VolumeGroup{
 
     public VolumeGroup(String name, PhysicalVolume pV){
         this.pvList = new ArrayList<PhysicalVolume>();
-        //addNewPv(pV);
+        addNewPv(pV);
         this.name = name;
         UUID u = UUID.randomUUID();
         this.uuid = u.toString();
@@ -28,6 +28,13 @@ public class VolumeGroup{
             sizeUsed += LV.getSize();
             return true;
         }
+    }
+
+    public void addNewPv(PhysicalVolume pv)
+    {
+        pvList.add(pv);
+        pv.set(this);
+        size += pv.getSize();
     }
 
     public String getUuid() {
@@ -54,11 +61,5 @@ public class VolumeGroup{
         return lvList;
     }
 }
-/*
-public void addNewPv(PhysicalVolume pv)
-    {
-        pvList.add(pv);
-        pv.assign(this);
-        storage += pv.getStorage();
-    }
- */
+
+

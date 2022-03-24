@@ -14,7 +14,7 @@ public class PhysicalVolume extends Name{
 
     public boolean isAssigned()
     {
-        return VG!=null;
+        return VG != null;
     }
 
     public void set(VolumeGroup vg)
