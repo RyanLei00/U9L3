@@ -5,7 +5,6 @@ public class PhysicalVolume extends Name{
     private HardDrive HD;
     private VolumeGroup VG;
 
-
     public PhysicalVolume(String name, HardDrive HD){
         super(name, HD.getSize());
         this.HD = HD;
