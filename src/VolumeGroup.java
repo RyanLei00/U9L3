@@ -11,6 +11,7 @@ public class VolumeGroup{
 
     public VolumeGroup(String name, PhysicalVolume pV){
         this.pvList = new ArrayList<PhysicalVolume>();
+        this.lvList = new ArrayList<LogicalVolume>();
         addNewPv(pV);
         this.name = name;
         UUID u = UUID.randomUUID();
@@ -21,6 +22,7 @@ public class VolumeGroup{
     public boolean addNewLv(LogicalVolume LV)
     {
         if(sizeUsed+LV.getSize() > size){
+            System.out.println("Error");
             return false;
         }
         else {

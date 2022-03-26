@@ -7,4 +7,12 @@ public class LogicalVolume extends Name {
         super(name, size);
         this.VG = VG;
     }
+
+    public String getVG()
+    {
+        if(VG == null) {
+            return null;
+        }
+        return VG.getName();
+    }
 }
