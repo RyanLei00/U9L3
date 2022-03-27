@@ -1,6 +1,57 @@
 Name
-    PhysicalVolume
-    LogicalVolume
+    String uuid - uuid of name
+    String name - name of the name
+    int size - the size of the name
+
+    Name(String name, int size) - constructor that takes in the name and size. It also creates a UUID for that object
+
+    String getName() - returns name
+    String getUUID() - returns UUID
+    int getSize() - returns size
+
+HardDrive
+    int size - size of hard drive
+    String name - name of hard drive
+    boolean isPV - is the hard drive assigned to a physical volume
+
+    HardDrive(String name, int size) - constructor that takes in the name of the hard drive and the size
+
+    int getSize() - returns size of hard drive
+    String getName() - returns name of hard drive
+    boolean isPV() - returns if the hard drive is assigned to a physical volume
+    void setPV() - assigns hard drive to a physical volume
+
+PhysicalVolume extends Name
+    HardDrive HD - hard drive associated with the physical volume
+    VolumeGroup VG - volume group associated with the physical volume
+
+    PhysicalVolume(String name, HardDrive HD) - constructor that takes in the name of the physical volume and a hard drive
+
+    boolean isAssigned() - returns if the physical volume is assigned to a volume group
+    void set(VolumeGroup vg) - assigns the physical volume to a volume group
+    String getVG() - if physical volume isn't assigned to a volume group, returns null. Else, returns the volume group's name
 
 VolumeGroup
-HardDrive
+    int size - size of volume group
+    String uuid - name of UUID
+    String name - name of volume group
+    ArrayList<PhysicalVolume> pvList - list of the physical volumes assigned to the volume group
+    ArrayList<LogicalVolume> lvList - list of the logical volumes assigned to the volume group
+    int sizeUsed - total size of the volume group
+
+    VolumeGroup(String name, PhysicalVolume pV) - constructor that takes in the volume group name and a physical volume
+
+    boolean addNewLv(LogicalVolume LV) - adds a logical volume to the volume group
+    void addNewPv(PhysicalVolume pv) - adds a physical volume to a volume group
+    String getUuid() - returns UUID of volume group
+    int getSize() - returns size of volume group
+    int getSizeUsed() - returns size used in volume group
+    String getName() - returns name of volume group
+    ArrayList<PhysicalVolume> getPvList() - returns list of all physical volumes assigned to the volume group
+    ArrayList<LogicalVolume> getLvList() - returns list of all logical volumes assigned to the volume group
+
+LogicalVolume extends Name
+    VolumeGroup VG - volume group associated with the logical volume
+
+    LogicalVolume(String name, int size, VolumeGroup VG) - constructor that takes in logical volume name, the size of the logical volume and the volume group that it is assigned to
+    String getVG() - if physical volume isn't assigned to a volume group, returns null. Else, returns the volume group's name

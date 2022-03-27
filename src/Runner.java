@@ -8,7 +8,6 @@ public class Runner {
     private PhysicalVolume PV;
     private HardDrive HD;
     private LogicalVolume LV;
-    private Name name;
     private ArrayList<HardDrive> hdList = new ArrayList<HardDrive>();
     private ArrayList<PhysicalVolume> pvList = new ArrayList<PhysicalVolume>();
     private ArrayList<VolumeGroup> vgList = new ArrayList<VolumeGroup>();
